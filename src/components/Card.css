@@ -1,0 +1,68 @@
+.card{
+  margin: 10px;
+  align-self: center;
+  transition: all 1s ease;
+  box-shadow: 3px 5px rgba(0, 0, 0, 0.472);
+  border:none;
+  background-color: rgba(128, 128, 128, 0.527);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 2px solid rgba(12, 10, 10, 0.349);
+  border-radius: 25px;
+  width:18%;
+  height: 20%;
+}
+
+.card-title {
+  margin-bottom: 15px;
+}
+
+#closeIcon {
+  display: flex;
+  justify-content: flex-end;
+  margin:10px;
+  margin-right: 8px;
+  margin-top: 8px;
+  transition: all .3s ease;
+  border: none;
+  background-color:rgba(255, 0, 0, 0.589);
+  align-self: flex-end;
+  border-radius: 15%;
+}
+
+#closeIcon:hover{
+  background-color: grey;
+}
+
+.card-body {
+  margin-top: 0px !important;
+  padding-top: 0px !important;
+}
+
+.card:hover{
+  transform:scale(1.1);
+  /* transform:rotateY(360deg); */
+  background-color: rgba(255, 155, 205, 0.431);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+}
+.row{
+  margin-top: 20px;
+  justify-content: space-around;
+  display:flex;
+  flex-direction:row;
+}
+.max, .min, .temp{
+  font-size: 12px;
+  font-weight: bold;
+}
+
+p{
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.iconoClima:hover{
+  opacity: 60%;
+  transform: scale(1.1);
+}
