@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import './App.css';
 import Cards from './components/Cards';
 import Nav from './components/Nav';
+import Swal from 'sweetalert2'
 
 export default function App() {
 
   const [cities, setCities] = useState([]);
-  const { APIKEY } = process.env;
+  const { REACT_APP_APIKEY } = process.env;
 
   function onSearch(pueblito) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${pueblito}&appid=${APIKEY}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${pueblito}&appid=${REACT_APP_APIKEY}&units=metric`)
       .then(r => r.json())
       .then((recurso) => {
         if (recurso.main !== undefined) {
@@ -27,12 +28,12 @@ export default function App() {
             longitud: recurso.coord.lon
           };
           if (cities.some(c => c.id === pueblito.id)) {
-            alert("La ciudad ya está!")
+            Swal.fire('La ciudad ya está!', 2500)
           } else {
             setCities(oldCities => [...oldCities, pueblito]);
           }
         } else {
-          alert("ciudad no encontrada");
+          alerSwal.fire("ciudad no encontrada", 'info', 2500);
         }
       });
 
