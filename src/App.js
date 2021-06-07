@@ -6,7 +6,7 @@ import Nav from './components/Nav';
 export default function App() {
 
   const [cities, setCities] = useState([]);
-  const apiKey = '4ae2636d8dfbdc3044bede63951a019b';
+  const { apiKey } = process.env;
 
   function onSearch(pueblito) {
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${pueblito}&appid=${apiKey}&units=metric`)
