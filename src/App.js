@@ -6,10 +6,10 @@ import Nav from './components/Nav';
 export default function App() {
 
   const [cities, setCities] = useState([]);
-  const APIKEY = '4ae2636d8dfbdc3044bede63951a019b';
+  const { APIKEY } = process.env;
 
   function onSearch(pueblito) {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${pueblito}&appid=${APIKEY}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${pueblito}&appid=${APIKEY}&units=metric`)
       .then(r => r.json())
       .then((recurso) => {
         if (recurso.main !== undefined) {
