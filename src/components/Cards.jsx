@@ -7,7 +7,7 @@ export default function Cards({cities, onClose}) {
   if(cities){
     return (
       <div className='cards'>
-        {cities.map(c => <Card
+        {cities.map((c, index) => <Card
             max={c.max}
             min={c.min}
             temp={c.temp}
@@ -15,7 +15,7 @@ export default function Cards({cities, onClose}) {
             img={c.img}
             onClose={() => onClose(c.id)}
             id={c.id}
-            key={`${c.id}-card`}
+            key={`${c.id}-${index}`}
           /> )}
       </div>
     );
