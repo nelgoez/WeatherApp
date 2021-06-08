@@ -4,3 +4,9 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+@media (max-width: 500px) {
+  .card{
+    flex-direction: column;
+  }
+}
