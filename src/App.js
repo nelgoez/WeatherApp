@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Cards from './components/Cards';
 import Nav from './components/Nav';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+
+/* eslint-disable */
 
 export default function App() {
 
@@ -38,6 +40,10 @@ export default function App() {
       });
 
   }
+
+  useEffect(() => {
+    onSearch('*')
+  }, [])
 
   function onClose(id) {
     setCities(oldCities => oldCities.filter(c => c.id !== id));
