@@ -42,7 +42,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    onSearch('*')
+    onSearch('america')
   }, [])
 
   function onClose(id) {
