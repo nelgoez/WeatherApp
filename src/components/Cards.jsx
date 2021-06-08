@@ -15,6 +15,7 @@ export default function Cards({cities, onClose}) {
             img={c.img}
             onClose={() => onClose(c.id)}
             id={c.id}
+            key={`${c.id}-card`}
           /> )}
       </div>
     );
