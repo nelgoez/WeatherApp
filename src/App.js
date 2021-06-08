@@ -8,6 +8,8 @@ import Swal from 'sweetalert2';
 
 export default function App() {
 
+  const defaultCities = ['londres', 'irlanda', 'Hong Kong', 'China', 'Córdoba' ]
+
   const [cities, setCities] = useState([]);
   const { REACT_APP_APIKEY } = process.env;
 
@@ -42,11 +44,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    onSearch('londres');
-    onSearch('irlanda');
-    onSearch('Hong Kong');
-    onSearch('China');
-    onSearch('Córdoba');
+    defaultCities.map(c => onSearch(e))
   }, [])
 
   function onClose(id) {
