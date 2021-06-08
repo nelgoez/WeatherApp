@@ -30,12 +30,12 @@ export default function App() {
             longitud: recurso.coord.lon
           };
           if (cities.some(c => c.id === pueblito.id)) {
-            Swal.fire('La ciudad ya está!', 2500)
+            Swal.fire('Aviso', 'La ciudad ya está!', 'info', 2500)
           } else {
             setCities(oldCities => [...oldCities, pueblito]);
           }
         } else {
-          Swal.fire("ciudad no encontrada", 'info', 2500);
+          Swal.fire('Alerta!', "ciudad no encontrada", 'info', 2500);
         }
       });
 
