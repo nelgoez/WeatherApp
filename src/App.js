@@ -42,7 +42,11 @@ export default function App() {
   }
 
   useEffect(() => {
-    onSearch('america')
+    onSearch('londres');
+    onSearch('irlanda');
+    onSearch('Hong Kong');
+    onSearch('China');
+    onSearch('Córdoba');
   }, [])
 
   function onClose(id) {
