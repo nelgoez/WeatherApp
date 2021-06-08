@@ -44,7 +44,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    defaultCities.map(c => onSearch(e))
+    defaultCities.map(c => onSearch(c))
   }, [])
 
   function onClose(id) {
