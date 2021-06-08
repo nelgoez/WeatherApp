@@ -33,7 +33,7 @@ export default function App() {
             setCities(oldCities => [...oldCities, pueblito]);
           }
         } else {
-          alerSwal.fire("ciudad no encontrada", 'info', 2500);
+          Swal.fire("ciudad no encontrada", 'info', 2500);
         }
       });
 
