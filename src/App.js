@@ -11,7 +11,7 @@ export default function App() {
   const defaultCities = ['londres', 'irlanda', 'Hong Kong', 'China', 'Córdoba' ]
 
   const [cities, setCities] = useState([]);
-  const { REACT_APP_APIKEY } = process.env;
+  const { REACT_APP_APIKEY } = process.env || secret.REACT_APP_APIKEY;
 
   function onSearch(pueblito) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${pueblito}&appid=${REACT_APP_APIKEY}&units=metric`)
