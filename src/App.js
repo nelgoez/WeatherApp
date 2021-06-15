@@ -85,12 +85,11 @@ export default function App() {
     defaultCities.map(c => onSearch(c))
   }, [])
 
-  useEffect(async() => {
-    await coords
-    .then((r)=> {
-      console.log(r);
-      onSearchCoords(r)
-    })
+  useEffect(() => {
+    if (coords) {
+      console.log(coords);
+      onSearchCoords(coords)
+    }
   }, [coords])
 
 
