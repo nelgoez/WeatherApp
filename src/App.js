@@ -8,9 +8,9 @@ import Swal from 'sweetalert2';
 
 export default function App() {
 
-  const cords = navigator.geolocation.getCurrentPosition(function(position) {
-    let locationCords = position.coords ? {lon: position.coords.longitude, lat: position.cords.latitude} : null;
-    return locationCords
+  const coords = navigator.geolocation.getCurrentPosition(function(position) {
+    let locationCoords = {lon: position.coords.longitude, lat: position.coords.latitude};
+    return locationCoords
   }, err => {
     Swal.fire('Error!', err.message, 'error');
   return null})
@@ -50,8 +50,8 @@ export default function App() {
 
   }
   
-  function onSearchCords(cords) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${cords.lat}&lon=${cords.lon}&appid=${REACT_APP_APIKEY}&units=metric`)
+  function onSearchCords(coords) {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${REACT_APP_APIKEY}&units=metric`)
       .then(r => r.json())
       .then((recurso) => {
         if (recurso.main !== undefined) {
@@ -86,8 +86,8 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    if (cords) onSearchCords(cords)
-  }, [cords])
+    if (coords) onSearchCords(coords)
+  }, [coords])
 
   function onClose(id) {
     setCities(oldCities => oldCities.filter(c => c.id !== id));
