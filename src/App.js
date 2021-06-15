@@ -87,9 +87,9 @@ export default function App() {
 
   useEffect(() => {
     await coords
-    .then(()=> {
-      console.log(coords);
-      onSearchCoords(coords)
+    .then((r)=> {
+      console.log(r);
+      onSearchCoords(r)
     })
   }, [coords])
 
