@@ -69,12 +69,12 @@ export default function App() {
             longitud: recurso.coord.lon
           };
           if (cities.some(c => c.id === pueblito.id)) {
-            Swal.fire('Aviso', 'La ciudad ya está!', 'info', 2500)
+            Swal.fire('Aviso', 'Tu ciudad ya está!', 'info', 2500)
           } else {
             setCities(oldCities => [...oldCities, pueblito]);
           }
         } else {
-          Swal.fire('Alerta!', "ciudad no encontrada", 'info', 2500);
+          Swal.fire('Alerta!', "tu ciudad no fué encontrada", 'info', 2500);
         }
       });
 
@@ -83,11 +83,9 @@ export default function App() {
 
   useEffect(() => {
     defaultCities.map(c => onSearch(c))
-  }, [])
-
-  useEffect(() => {
     if (coords) onSearchCoords(coords)
   }, [coords])
+
 
   function onClose(id) {
     setCities(oldCities => oldCities.filter(c => c.id !== id));
