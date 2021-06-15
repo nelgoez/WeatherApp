@@ -8,14 +8,17 @@ import Swal from 'sweetalert2';
 
 export default function App() {
 
-  const coords = navigator.geolocation ? navigator.geolocation.getCurrentPosition(function(position) {
-    let locationCoords = {lon: position.coords.longitude, lat: position.coords.latitude};
-    return locationCoords
-  }, err => {
-    Swal.fire('Error!', err.message, 'error');
-  return null}) : null;
+  const coords = () => (
+    navigator.geolocation.getCurrentPosition(function (position) {
+      let locationCoords = { lon: position.coords.longitude, lat: position.coords.latitude };
+      return locationCoords
+    }, err => {
+      Swal.fire('Error!', err.message, 'error');
+      return null;
+    })
+  );
 
-  const defaultCities = ['londres', 'irlanda', 'Hong Kong', 'China' ]
+  const defaultCities = ['londres', 'irlanda', 'Hong Kong', 'China']
 
   const [cities, setCities] = useState([]);
   const { REACT_APP_APIKEY } = process.env;
@@ -49,7 +52,7 @@ export default function App() {
       });
 
   }
-  
+
   function onSearchCoords(coords) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${REACT_APP_APIKEY}&units=metric`)
       .then(r => r.json())
@@ -86,9 +89,8 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    if (coords) {
-      console.log(coords);
-      onSearchCoords(coords)
+    if("geolocation" in navigator){
+      onSearchCoords(coords())
     }
   }, [coords])
 
