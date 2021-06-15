@@ -8,8 +8,6 @@ import Swal from 'sweetalert2';
 
 export default function App() {
 
-  const [coords, setCoords] = useState(null)
-
   const defaultCities = ['londres', 'irlanda', 'Hong Kong', 'China']
 
   const [cities, setCities] = useState([]);
@@ -83,13 +81,8 @@ export default function App() {
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(function (position) {
-        setCoords({ lon: position.coords.longitude, lat: position.coords.latitude });
+        onSearchCoords({ lon: position.coords.longitude, lat: position.coords.latitude });
       })
-      if (coords) {
-        console.log(coords)
-        onSearchCoords(coords)
-        setCoords(null)
-      }
     }
   }, [navigator])
 
