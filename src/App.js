@@ -90,9 +90,9 @@ export default function App() {
     if (coords) {
       console.log(coords)
       onSearchCoords(coords)
+      setCoords(null)
     }
-    setCoords(null)
-  }, [coords])
+  }, [])
 
 
   function onClose(id) {
