@@ -87,12 +87,12 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    if (coords) {
+    if (coords.lat && coords.lon) {
       console.log(coords)
       onSearchCoords(coords)
       setCoords(null)
     }
-  }, [])
+  }, [coords])
 
 
   function onClose(id) {
