@@ -8,12 +8,10 @@ import Swal from 'sweetalert2';
 
 export default function App() {
 
-  const coords = navigator.geolocation.getCurrentPosition(function (position) {
-    let locationCoords = { lon: position.coords.longitude, lat: position.coords.latitude };
-    return locationCoords
-  }, err => {
-    Swal.fire('Error!', err.message, 'error');
-    return null;
+  const [coords, setCoords] = useState(null) 
+  
+  navigator.geolocation.getCurrentPosition(function (position) {
+    setCoords({ lon: position.coords.longitude, lat: position.coords.latitude });
   });
 
   const defaultCities = ['londres', 'irlanda', 'Hong Kong', 'China']
