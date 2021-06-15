@@ -83,7 +83,10 @@ export default function App() {
 
   useEffect(() => {
     defaultCities.map(c => onSearch(c))
-    if (coords) onSearchCoords(coords)
+    if (coords) {
+      console.log(coords);
+      onSearchCoords(coords)
+    }
   }, [coords])
 
 
