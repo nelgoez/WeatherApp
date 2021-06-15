@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 export default function App() {
 
   const cords = navigator.geolocation.getCurrentPosition(function(position) {
-    let locationCords = {lon: position.coords.longitude, lat: position.cords.latitude};
+    let locationCords = position.coords ? {lon: position.coords.longitude, lat: position.cords.latitude} : null;
     return locationCords
   }, err => {
     Swal.fire('Error!', err.message, 'error');
