@@ -8,8 +8,8 @@ import Swal from 'sweetalert2';
 
 export default function App() {
 
-  const [coords, setCoords] = useState(null) 
-  
+  const [coords, setCoords] = useState(null)
+
   navigator.geolocation.getCurrentPosition(function (position) {
     setCoords({ lon: position.coords.longitude, lat: position.coords.latitude });
   });
@@ -86,12 +86,10 @@ export default function App() {
 
   useEffect(() => {
     if ("geolocation" in navigator) {
-      if (coords) {
-        console.log(coords)
-        onSearchCoords(coords)
-      }
+      console.log(coords)
+      onSearchCoords(coords)
     }
-  }, [coords])
+  }, [navigator])
 
 
   function onClose(id) {
