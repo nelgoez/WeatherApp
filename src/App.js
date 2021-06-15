@@ -86,10 +86,11 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    if (coords) {
+    await coords
+    .then(()=> {
       console.log(coords);
       onSearchCoords(coords)
-    }
+    })
   }, [coords])
 
 
