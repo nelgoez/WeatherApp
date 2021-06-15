@@ -9,12 +9,12 @@ import Swal from 'sweetalert2';
 export default function App() {
 
   const coords = navigator.geolocation.getCurrentPosition(function (position) {
-      let locationCoords = { lon: position.coords.longitude, lat: position.coords.latitude };
-      return locationCoords
-    }, err => {
-      Swal.fire('Error!', err.message, 'error');
-      return null;
-    });
+    let locationCoords = { lon: position.coords.longitude, lat: position.coords.latitude };
+    return locationCoords
+  }, err => {
+    Swal.fire('Error!', err.message, 'error');
+    return null;
+  });
 
   const defaultCities = ['londres', 'irlanda', 'Hong Kong', 'China']
 
@@ -87,9 +87,11 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    if("geolocation" in navigator){
-      console.log(coords)
-      onSearchCoords(coords)
+    if ("geolocation" in navigator) {
+      if (coords) {
+        console.log(coords)
+        onSearchCoords(coords)
+      }
     }
   }, [coords])
 
