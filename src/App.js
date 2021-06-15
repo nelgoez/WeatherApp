@@ -55,7 +55,7 @@ export default function App() {
             id: recurso.id,
             wind: recurso.wind.speed,
             temp: recurso.main.temp,
-            name: recurso.name,
+            name: `Tu ciudad: ${recurso.name}`,
             weather: recurso.weather[0].main,
             clouds: recurso.clouds.all,
             latitud: recurso.coord.lat,
