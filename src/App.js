@@ -91,7 +91,7 @@ export default function App() {
       console.log(coords)
       onSearchCoords(coords)
     }
-  }, [coords])
+  }, [])
 
 
   function onClose(id) {
