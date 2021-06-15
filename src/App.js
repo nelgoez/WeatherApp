@@ -87,11 +87,11 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    if (coords) {
+    if ("geolocation" in navigator) {
       console.log(coords)
       onSearchCoords(coords)
     }
-  }, [])
+  }, [coords])
 
 
   function onClose(id) {
