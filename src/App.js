@@ -15,7 +15,7 @@ export default function App() {
     Swal.fire('Error!', err.message, 'error');
   return null}) : null;
 
-  const defaultCities = ['londres', 'irlanda', 'Hong Kong', 'China', 'Buenos Aires' ]
+  const defaultCities = ['londres', 'irlanda', 'Hong Kong', 'China' ]
 
   const [cities, setCities] = useState([]);
   const { REACT_APP_APIKEY } = process.env;
