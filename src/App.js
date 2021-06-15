@@ -86,8 +86,10 @@ export default function App() {
 
   useEffect(() => {
     if ("geolocation" in navigator) {
-      console.log(coords)
-      onSearchCoords(coords)
+      if (coords) {
+        console.log(coords)
+        onSearchCoords(coords)
+      }
     }
   }, [navigator])
 
