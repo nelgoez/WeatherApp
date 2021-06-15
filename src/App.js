@@ -50,7 +50,7 @@ export default function App() {
 
   }
   
-  function onSearchCords(coords) {
+  function onSearchCoords(coords) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${REACT_APP_APIKEY}&units=metric`)
       .then(r => r.json())
       .then((recurso) => {
@@ -86,7 +86,7 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    if (coords) onSearchCords(coords)
+    if (coords) onSearchCoords(coords)
   }, [coords])
 
   function onClose(id) {
