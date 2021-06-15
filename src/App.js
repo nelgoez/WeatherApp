@@ -10,12 +10,6 @@ export default function App() {
 
   const [coords, setCoords] = useState(null)
 
-  if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      setCoords({ lon: position.coords.longitude, lat: position.coords.latitude });
-    })
-  }
-
   const defaultCities = ['londres', 'irlanda', 'Hong Kong', 'China']
 
   const [cities, setCities] = useState([]);
@@ -87,12 +81,17 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    if (coords.lat && coords.lon) {
-      console.log(coords)
-      onSearchCoords(coords)
-      setCoords(null)
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        setCoords({ lon: position.coords.longitude, lat: position.coords.latitude });
+      })
+      if (coords) {
+        console.log(coords)
+        onSearchCoords(coords)
+        setCoords(null)
+      }
     }
-  }, [coords])
+  }, [navigator])
 
 
   function onClose(id) {
