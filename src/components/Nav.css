@@ -2,3 +2,8 @@
   display: flex;
   justify-self: flex-start;
 }
+
+.title {
+  font-weight: bolder;
+  color:ghostwhite
+}

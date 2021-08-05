@@ -7,7 +7,7 @@ function Nav({onSearch}) {
   return (
     <div className={"navbar navbar-dark bg-dark"}>
       <img id="logoHenry" src={Logo}alt="Unavailable"/>
-  <span>
+  <span className='title'>
     Weather App
     </span>
   <SearchBar onSearch={onSearch}/>
