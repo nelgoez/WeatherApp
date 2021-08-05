@@ -28,3 +28,4 @@ yarn-error.log*
 .env
 .env.test
 package-lock.json
+package-lock.json
